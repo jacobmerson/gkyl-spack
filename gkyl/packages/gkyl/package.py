@@ -52,8 +52,10 @@ class Gkyl(WafPackage):
 
         gkylzero = spec["gkylzero"]
         config["enable-gkylzero"] = ""
-        config["gkylzero-inc-dir"] = f"{gkylzero.prefix}/gkylzero/include"
-        config["gkylzero-lib-dir"] = f"{gkylzero.prefix}/gkylzero/lib"
+        #config["gkylzero-inc-dir"] = f"{gkylzero.prefix}/gkylzero/include"
+        #config["gkylzero-lib-dir"] = f"{gkylzero.prefix}/gkylzero/lib"
+        config["gkylzero-inc-dir"] = gkylzero.headers.directories[0]
+        config["gkylzero-lib-dir"] = gkylzero.libs.directories[0]
 
         config["enable-superlu"] = ""
         config["superlu-inc-dir"] = spec["superlu"].prefix.include
